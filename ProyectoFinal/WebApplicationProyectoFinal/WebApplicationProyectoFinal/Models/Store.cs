@@ -11,7 +11,7 @@
             Name = name;
             Street = street; 
         }
-        public Store Build(Guid id, string name, string street)
+        public static Store Build(Guid id, string name, string street)
         {
             return new Store(id, name, street);
         }

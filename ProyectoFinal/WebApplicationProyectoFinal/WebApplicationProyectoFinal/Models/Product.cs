@@ -20,7 +20,7 @@
             Value = value;
             StoreId = storeId;
         }
-        public Product Build(Guid id, string name, string presentation, string material, float value, Guid storeId)
+        public static Product Build(Guid id, string name, string presentation, string material, float value, Guid storeId)
         {
             return new Product(id, name, presentation, material, value, storeId);
         }
