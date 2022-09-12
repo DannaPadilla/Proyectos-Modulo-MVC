@@ -19,12 +19,12 @@ namespace WebApplicationProyectoFinal.Services
             await this.repository.Save(store);
             await this.repository.Commit();
         }
-        public async Task Modificar(Store store)
+        public async Task Update(Store store)
         {
             this.repository.Update(store);
             await this.repository.Commit();
         }
-        public async Task Eliminar(Store store)
+        public async Task Delete1(Store store)
         {
            this.repository.Delete(store);
             await this.repository.Commit();

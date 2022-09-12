@@ -19,16 +19,50 @@ namespace WebApplicationProyectoFinal.Controllers
             return View(stores);
         }
         [HttpPost]
-        public async Task<IActionResult> Crear(string name, string street)
+        public async Task<IActionResult> Create(string name, string street)
         {
             var store = Store.Build(Guid.NewGuid(), name, street);
             await this.storeServices.Crear(store);
             return View();
         }
         [HttpGet]
-        public IActionResult Crear()
+        public IActionResult Create()
         {
             return View();
+        }
+        [HttpGet] 
+        public IActionResult Update(Guid id, string name, string street)
+        {
+            var store = Store.Build(id, name, street);
+
+            return View(store);
+        }
+        //Update
+        [HttpPost]
+        public IActionResult Update1(Guid id, string name, string street)
+        {
+            var store = Store.Build(id, name, street);
+            this.storeServices.Update(store);
+            return RedirectToAction(nameof(Index)); ;
+        }
+
+
+        //Delete
+
+        [HttpGet]
+        public IActionResult Delete(Guid id, string name, string street)
+        {
+            var store = Store.Build(id, name, street);
+
+            return View(store);
+        }
+
+        [HttpPost]
+        public IActionResult Delete1(Guid id, string name, string adress)
+        {
+            var store = Store.Build(id, name, adress);
+            this.storeServices.Delete1(store);
+            return RedirectToAction(nameof(Index)); ;
         }
     }
 }

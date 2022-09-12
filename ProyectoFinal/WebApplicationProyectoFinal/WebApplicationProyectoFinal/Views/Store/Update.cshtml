@@ -1,0 +1,30 @@
+﻿@using WebApplicationProyectoFinal.Models;
+@model Store;
+
+
+@{
+    ViewData["title"] = "Editar";
+}
+
+<h5 class="card-title">Editar Empresa</h5>
+
+<form method="post" asp-controller="Store" asp-action="Update1" class="row g-3">
+
+    <input asp-for="Id" type="hidden" class="form-control" id="name" required>
+
+    <div class="col-md-4">
+        <label for="name" class="form-label">Name Storea</label>
+        <input asp-for="Name" type="text" class="form-control" id="name" required>
+    </div>
+
+    <div class="col-md-4">
+        <label for="street" class="form-label">Street</label>
+        <input asp-for="Street" type="text" class="form-control" id="street" required>
+    </div>
+
+
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Enviar formulario </button>
+    </div>
+</form>
