@@ -23,7 +23,7 @@ namespace WebApplicationProyectoFinal.Controllers
         {
             var store = Store.Build(Guid.NewGuid(), name, street);
             await this.storeServices.Crear(store);
-            return View();
+            return RedirectToAction(nameof(Index));
         }
         [HttpGet]
         public IActionResult Create()
@@ -39,11 +39,11 @@ namespace WebApplicationProyectoFinal.Controllers
         }
         //Update
         [HttpPost]
-        public IActionResult Update1(Guid id, string name, string street)
+        public async Task<IActionResult>  Update1(Guid id, string name, string street)
         {
             var store = Store.Build(id, name, street);
-            this.storeServices.Update(store);
-            return RedirectToAction(nameof(Index)); ;
+             await this.storeServices.Update(store);
+            return RedirectToAction(nameof(Index)); 
         }
 
 
@@ -58,11 +58,11 @@ namespace WebApplicationProyectoFinal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete1(Guid id, string name, string adress)
+        public async Task <IActionResult> Delete1(Guid id, string name, string street)
         {
-            var store = Store.Build(id, name, adress);
-            this.storeServices.Delete1(store);
-            return RedirectToAction(nameof(Index)); ;
+            var store = Store.Build(id, name, street);
+            await this.storeServices.Delete1(store);
+            return RedirectToAction(nameof(Index)); 
         }
     }
 }
